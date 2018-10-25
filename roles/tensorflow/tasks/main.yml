@@ -1,0 +1,9 @@
+---
+
+- name: install tensorflow
+  pip:
+    name: "{{ item }}"
+    executable: pip3
+  with_items:
+    - tensorflow
+    - tensorflow-gpu

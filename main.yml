@@ -1,0 +1,9 @@
+---
+
+- hosts: deep-learning
+  user: ubuntu
+  roles:
+    - python
+    - cuda
+    - cudann
+    - tensorflow
