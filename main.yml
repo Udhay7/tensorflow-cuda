@@ -1,9 +1,8 @@
 ---
 
-- hosts: deep-learning
+- hosts: local
   user: ubuntu
+  gather_facts: false
+  connection: local
   roles:
-    - python
-    - cuda
-    - cudann
-    - tensorflow
+    - ec2

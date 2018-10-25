@@ -1,0 +1,25 @@
+---
+
+- name: Create a security group
+  ec2_group:
+    name: gpu_sg
+    description: Security Group for GPU instances
+    region: "{{ region }}"
+    rules:
+      - proto: tcp
+        from_port: 22
+        to_port: 22
+        cidr_ip: 0.0.0.0/0
+
+- name: provision ec2
+  ec2:
+    group: "{{ security_group }}"
+    instance_type: "{{ instance_type }}"
+    image: "{{ image }}"
+    wait: true
+    region: "{{ region }}"
+    keypair: "{{ keypair }}"
+    instance_tags:
+      type: gpu
+    count_tag: type
+    exact_count: "{{ count }}"

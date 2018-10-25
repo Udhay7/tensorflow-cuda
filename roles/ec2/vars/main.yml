@@ -1,0 +1,8 @@
+---
+
+instance_type: p2.xlarge
+security_group: gpu_sg
+image: ami-001d80d4beb28a975
+keypair: gpu
+region: ap-southeast-2
+count: 1
